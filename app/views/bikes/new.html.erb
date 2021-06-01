@@ -24,11 +24,16 @@
           <%= f.input :photo, as: :file %>
         </div>
 
+        <div class="bike_image">
+          <%= f.submit "Add your Bike" %>
+        </div>
+
       <% end %>
 
-      <p><%= link_to 'submit', root_path, class: "btn btn-ghost-filled" %>
+      <p>
         <%= link_to 'Back', bikes_path, class: "btn btn-ghost" %>
-        <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+        <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+      </p>
     </div>
   </div>
 </div>

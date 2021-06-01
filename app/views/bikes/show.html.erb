@@ -1,7 +1,33 @@
+<p id="notice"><%= notice %></p>
 
-<img src="" alt="">
-<p><%= link_to 'Book', booking_path, class: "btn btn-ghost-filled"%></p>
-<p><%= link_to 'Bike list', bike_path, class: "btn btn-ghost"%></p>
+<p>
+  <strong>Brand:</strong>
+  <%= @bike.brand %>
+</p>
 
-  
+<p>Frame Size:</strong>
+  <%= @bike.frame_size %>
+</p>
+
+<p>
+  <strong>Type of Bike:</strong>
+  <%= @bike.type %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @bike.location %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @bike.user_id %>
+</p>
+
+
+<p><%= link_to 'Back', bikes_path %></p>
+<p><%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%></p>
+<p><%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+
+
   <%# class="fas fa-heart" %>

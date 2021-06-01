@@ -1,0 +1,6 @@
+<h2> Bikes around you </h2>
+
+<% @bikes.each do |bike| %>   
+  <%# <p><%=link_to bike.name, bike_path(bike.id), class: "btn btn-primary" %>
+<% end %> 
+<p><%= link_to 'New list', new_list_path, class: "btn btn-ghost"%></p>

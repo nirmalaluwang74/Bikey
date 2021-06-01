@@ -1,0 +1,20 @@
+<h2> Bikes around you </h2>
+
+<div class="container">
+  <% @bikes.each do |bike| %>   
+  <%# <p><%=link_to bike.name, bike_path(bike.id), class: "btn btn-primary" %>
+    <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h3><%=bike.name%></h3>
+        <p><%=bike.brand%></p>
+        <p><%=bike.frame_size%></p>
+       <p><%=bike.type%></p>
+        <p>Product description with only</p>
+      </div>
+    </div>
+  <% end %> 
+  
+  <%# <p><%= link_to 'New list', new_bike_path, class: "btn btn-ghost"%>
+</div>
+

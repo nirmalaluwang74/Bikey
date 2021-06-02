@@ -23,6 +23,11 @@
           <%= f.input :bike_type %>
         </div>
 
+        <div class="form-inputs">
+          <%= f.input :description %>
+        </div>
+
+
         <div class="bike_image">
           <%= f.input :photo, as: :file %>
         </div>
@@ -33,9 +38,8 @@
       <% end %>
 
       <p>
-        <%= link_to 'Bike list', bikes_path%>
-        <br>
-        <%= link_to 'Back', bikes_path %>
+        <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+        <%= link_to 'Back', bikes_path, class: "btn btn-ghost" %>
       </p>
     </div>
   </div>

@@ -1,5 +1,5 @@
-<div class="container" style="width:400px;">
-  <div class="row justify-content-centre">
+<div class="container" style="width:200px;">
+  <div class="row justify-content-center">
     <div class="col-12">
       <p id="notice"><%= notice %></p>
 
@@ -22,7 +22,6 @@
         <%= @bike.location %>
       </p>
 
-
       <p>
         <strong>Location:</strong>
         <%= @bike.description %>
@@ -35,10 +34,11 @@
     </div>
   </div>
 
-
-  <p><%= link_to 'Back', bikes_path class: "btn btn-ghost"%></%>
-  <%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%>
-  <p><%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+  <div class="link_button">
+    <p><%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%></p>
+    <p><%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+    <p><%= link_to 'Back', bikes_path, class: "btn btn-ghost"%></%></p>
+  </div>
 </div>
 
 

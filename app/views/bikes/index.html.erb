@@ -5,9 +5,8 @@
 
   <% @bikes.each do |bike| %>  
     <div class="card-product">
-      <%= image_tag bike.photo %>
+      <%= cl_image_tag bike.photo.key %>
       <div class="card-product-infos">
-        <h4><%=bike.name%></h4>
         <p><%=bike.brand%></p>
         <p><%=bike.frame_size%></p>
         <p><%=bike.bike_type%></p>
@@ -17,3 +16,4 @@
     </div>
   <% end %> 
 </div>
+

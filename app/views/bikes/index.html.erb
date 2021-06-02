@@ -1,20 +1,19 @@
-<h2> Bikes around you </h2>
+
+<p class="h3">Bikes around you</p>
 
 <div class="container">
-  <% @bikes.each do |bike| %>
-  <%# <p><%=link_to bike.name, bike_path(bike.id), class: "btn btn-primary" %>
+
+  <% @bikes.each do |bike| %>  
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <%= cl_image_tag bike.photo.key %>
       <div class="card-product-infos">
-        <h3><%=bike.name%></h3>
         <p><%=bike.brand%></p>
         <p><%=bike.frame_size%></p>
         <p><%=bike.bike_type%></p>
-        <p>This bike is 2 years old. You can bike around Amsterdam and with it for a smooth</p>r
+        <p><%=bike.description%></p>
+        <p><%= link_to 'See this bike', new_bike_path, class: "btn-ghost-filled" %></p>
       </div>
     </div>
-  <% end %>
-
-  <%# <p><%= link_to 'New list', new_bike_path, class: "btn btn-ghost"%>
+  <% end %> 
 </div>
 

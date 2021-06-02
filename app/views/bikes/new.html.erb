@@ -1,6 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
+<div class="container" style="width:400px;">
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <br>
+      <h2>Join our community</h2>
+      <br>
       <%= simple_form_for(@bike) do |f| %>
 
         <div class="form-inputs">
@@ -25,13 +28,14 @@
         </div>
 
         <div class="bike_image">
-          <%= f.submit "Add your Bike", class: "btn btn-ghost"%>
+          <%= f.submit "Add your Bike", class: "btn-ghost-filled" %>
         </div>
       <% end %>
 
       <p>
-        <%= link_to 'Back', bikes_path, class: "btn btn-ghost" %>
-        <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+        <%= link_to 'Bike list', bikes_path%>
+        <br>
+        <%= link_to 'Back', bikes_path %>
       </p>
     </div>
   </div>

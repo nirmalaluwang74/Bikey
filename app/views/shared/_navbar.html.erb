@@ -3,7 +3,7 @@
     <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/320/openmoji/272/bicycle_1f6b2.png" />
 </a> -->
     <%= link_to(image_tag('bike_logo.png'), root_path, class: "navbar-brand") %>
-    <div style="font-weight: bold; margin-left:-900px; margin-top: 11px;">flying wheels</div>
+    <div style="font-weight: bold; margin-left:-878px; margin-top: 11px;">flying wheels</div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,7 +12,8 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">List your bike</a>
+        <!-- <a class="nav-link" href="#">List your bike</a> -->
+        <%= link_to 'See all our bikes', bikes_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Inbox</a>

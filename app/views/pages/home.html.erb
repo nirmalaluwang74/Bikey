@@ -12,22 +12,44 @@
 
 
 
-  <div class="container">
+  <div class="container" style="width:500px;">
     <div class="row justify-content-centre">
       <div class="col-12">
         <br>
         <br>
-        <h3 class="text-center">Featured bikes</h3>
+        <h3 class="text-center">Bike of the day</h3>
         <p class="text-center">Our assortment includes some of the best brands in town.</p>
+
         <div class="card-trip">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <% @bikes_featured.each do |bike| %>
+              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1f%2FNorco_Range.jpg%2F1200px-Norco_Range.jpg&f=1&nofb=1" alt="bike">
           <div class="card-trip-infos">
             <div>
-              <% @bikes_featured.each do |bike| %>
-              <%= bike.brand %>
-              <%= bike.frame_size %>
-              <%= bike.bike_type %>
-              <%= bike.location %>
+              <div>
+                <strong>Brand:</strong>
+                <%= bike.brand %>
+              </div>
+
+              <div>
+                <strong>Frame Size:</strong>
+                <%= bike.frame_size %>
+              </div>
+
+              <div>
+                <strong>Type of Bike:</strong>
+                <%= bike.bike_type %>
+              </div>
+
+              <div>
+                <strong>Location:</strong>
+                <%= bike.location %>
+              </div>
+
+              <div>
+                <strong>Description:</strong>
+                <%= bike.description %>
+              </div>
+
               <% end %>
             </div>
             <h2 class="card-trip-pricing">€15.00</h2>
@@ -36,7 +58,6 @@
       </div>
     </div>
   </div>
-
 
 
 

@@ -1,19 +1,24 @@
-<h3 class="h2" >
-  <p class="text-center" >Bikes around you</p>
-</h3>
+<h2 class="text-center mt-2">
+    Bikes around you
+</h2>
 <div class="container" style="display:flex; space justify-content:space-around; justify-content: space-between"> 
-    <% @bikes.each do |bike| %>
-     <div class="p-2 mb-2 bg-white">  
+  <% @bikes.each do |bike| %>
+    <div class="p-2 mb-2 bg-white">  
       <div class="card-product">
         <div class="card-product img">
           <%= cl_image_tag bike.photo.key %>
         </div>
         <div class="card-product-infos">
-          <p class="card-product h2"><%=bike.brand%></p>
-          <p class="card-product p" ><%=bike.frame_size%></p>
-          <p class="card-product p"><%=bike.bike_type%></p>
+          <p><%=bike.brand%></p>
+          <p><%=bike.frame_size%></p>
+          <p><%=bike.bike_type%></p>
           <p><%=bike.description%></p>
           <p class= "p-2" ><%= link_to 'See this bike', bike_path(bike.id), class: "btn-ghost-filled" %></p>
         </div>
-        </div>
-
+      </div>
+    </div>
+  <% end %>
+  
+       
+        
+</div>

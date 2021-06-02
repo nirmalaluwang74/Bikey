@@ -1,33 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="container" style="width:400px;">
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Brand:</strong>
-  <%= @bike.brand %>
-</p>
+      <p>
+        <strong>Brand:</strong>
+        <%= @bike.brand %>
+      </p>
 
-<p>Frame Size:</strong>
-  <%= @bike.frame_size %>
-</p>
+      <p>Frame Size:</strong>
+        <%= @bike.frame_size %>
+      </p>
 
-<p>
-  <strong>Type of Bike:</strong>
-  <%= @bike.bike_type %>
-</p>
+      <p>
+        <strong>Type of Bike:</strong>
+        <%= @bike.bike_type %>
+      </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @bike.location %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @bike.user_id %>
-</p>
+      <p>
+        <strong>Location:</strong>
+        <%= @bike.location %>
+      </p>
 
 
-<p><%= link_to 'Back', bikes_path %></p>
-<p><%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%></p>
-<p><%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+      <p>
+        <strong>Location:</strong>
+        <%= @bike.description %>
+      </p>
+
+      <p>
+        <strong>User:</strong>
+        <%= @bike.user_id %>
+      </p>
+    </div>
+  </div>
+
+
+  <p><%= link_to 'Back', bikes_path class: "btn btn-ghost"%></%>
+  <%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%>
+  <p><%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+</div>
 
 
   <%# class="fas fa-heart" %>

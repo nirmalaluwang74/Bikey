@@ -41,6 +41,7 @@
           </div>
           <h2 class="card-trip-pricing">€15.00</h2>
           <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
+          <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>
         </div>
       </div>
       <br>
@@ -57,7 +58,21 @@
       wish.addEventListener("click", (event) => {
         console.log(event);
         event.currentTarget.classList.toggle('clicked');
+        document.getElementById('wish-alert').innerHTML = "Added to <br> wish list";
       });
+
+      // wish.removeEventListener("click", (event) => {
+      //   console.log(event);
+      //   // event.currentTarget.classList.toggle('i');
+      //   document.getElementById('wish-alert').innerHTML = "";
+      // });
+
+      // console.log(document.getElementById('wish').onclick = displayMessage);
+
+
+      // def displayMessage()
+      //   document.getElementById('wish-alert').innerHTML = "Added to wish list";
+      // end
     </script>
 
 

@@ -27,7 +27,8 @@ gem 'pundit'
 gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-
+#installed by me
+gem 'cloudinary'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 

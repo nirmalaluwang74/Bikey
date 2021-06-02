@@ -1,35 +1,44 @@
 
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images6.alphacoders.com/549/549198.jpg');">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images6.alphacoders.com/549/549198.jpg');">
   <div class="container">
     <h1>Sustainable Experiences</h1>
     <p>Find the latest bike models to whizz around
       <br>town without leaving the comfort of your home</p>
-    <a class="btn btn-ghost-filled" href="#">Book a bike</a>
-    <!-- <a class="btn btn-ghost" href="#">List a bike</a> -->
-    <%= link_to 'List a bike', new_bike_path, class: "btn btn-ghost" %>
+      <a class="btn btn-ghost-filled" href="#">Book a bike</a>
+      <!-- <a class="btn btn-ghost" href="#">List a bike</a> -->
+      <%= link_to 'List a bike', new_bike_path, class: "btn btn-ghost" %>
+    </div>
   </div>
-</div>
 
 
 
   <div class="container">
-  <div class="row justify-content-centre">
-    <div class="col-12">
-      <br>
-      <br>
-      <h3 class="text-center">Featured bikes</h3>
-      <p class="text-center">Our assortment includes some of the best brands in town.</p>
-       <% @bikes_featured.each do |bike| %>
-        <%= bike.brand %>
-        <%= bike.frame_size %>
-        <%= bike.bike_type %>
-        <%= bike.location %>
-         <% end %>
+    <div class="row justify-content-centre">
+      <div class="col-12">
+        <br>
+        <br>
+        <h3 class="text-center">Featured bikes</h3>
+        <p class="text-center">Our assortment includes some of the best brands in town.</p>
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+          <div class="card-trip-infos">
+            <div>
+              <% @bikes_featured.each do |bike| %>
+              <%= bike.brand %>
+              <%= bike.frame_size %>
+              <%= bike.bike_type %>
+              <%= bike.location %>
+              <% end %>
+            </div>
+            <h2 class="card-trip-pricing">€15.00</h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 
 
 
- <%#= asset_path 'foo.jpg' %>
+
+  <%#= asset_path 'foo.jpg' %>
 

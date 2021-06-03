@@ -1,11 +1,16 @@
 
-<div class="container" style="width:800px">
+
+<div class="container" style="width:800px;">
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
-      <p id="notice"><%= notice %></p>
-      <div class="card-trip">
-       <%= image_tag('bike.jpg', height: '400px', width: '800px')%>
+      <div class="card-trip ">
+         <% if bike.photo.attached?%>
+             <%= cl_image_tag bike.photo.key%>
+         <% else %>
+             <%= image_tag('bike.jpg', height: '400px', width: '800px') %>
+         <% end %>
+
 
         <div class="card-trip-infos">
           <div>
@@ -50,6 +55,33 @@
         <p><%= link_to 'Back to our bikes', bikes_path, class: "btn btn-ghost"%></p>
       </div>
     </div>
+
+<div class="container" style="width:400px;">
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <br>
+      <h2>Book this bike</h2>
+      <br>
+
+      <%= simple_form_for [@bike, @booking] do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :dates %>
+        </div>
+
+        <div class="button">
+          <div class="row justify-content-center">
+          
+          <p><%= f.submit "Book your Bike", class: "btn-ghost-filled" %>
+          <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+          <%# <%= link_to 'My Bookings' bike_bookings_path, class: "btn-ghost-filled" %> 
+          </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

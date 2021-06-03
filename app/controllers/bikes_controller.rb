@@ -6,12 +6,21 @@ class BikesController < ApplicationController
       @bikes = policy_scope(Bike.where("location ILIKE ?", "%#{params[:query]}%"))
     else
       @bikes = policy_scope(Bike)
+
+      @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url('bike.jpg')
+      }
     end
   end
 
   def show
     @bike = Bike.find(params[:id])
     authorize(@bike)
+    @booking = Booking.new
   end
 
   def new

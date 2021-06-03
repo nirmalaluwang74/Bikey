@@ -1,13 +1,13 @@
 <h2 class="text-center mt-2">
     Bikes around you
 </h2>
-<div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap"> 
+<div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap">
   <% @bikes.each do |bike| %>
     <span class=" m-1.5 pb-1 mt-1.5">
-      <div class="p-2 mb-2 bg-white">  
-        <div class="card-product"> 
+      <div class="p-2 mb-2 bg-white">
+        <div class="card-product">
           <div class="card-product img">
-            <%= cl_image_tag bike.photo.key %>
+            <%= cl_image_tag bike.photo.key if bike.photo.attached?%>
           </div>
           <div class="p-3">
             <div class="card-product p">
@@ -17,7 +17,7 @@
               <p><b>Description</b> : <%=bike.description%></p>
             </div>
           </div>
-      </div> 
+        </div>
         <div class="link_button p-1">
           <p><%= link_to 'See this bike', bike_path(bike.id), class: "btn-ghost-filled" %></p>
         </div>
@@ -25,9 +25,9 @@
     </span>
   <% end %>
 
-  <div id="map">
+  <div id="map"
      style="width: 100%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>

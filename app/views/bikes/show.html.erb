@@ -1,11 +1,11 @@
 
-<div class="container" style="width:500px">
+<div class="container" style="width:600px;">
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
       <p id="notice"><%= notice %></p>
-      <div class="card-trip">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1f%2FNorco_Range.jpg%2F1200px-Norco_Range.jpg&f=1&nofb=1" alt="bike">
+      <div class="card-trip ">
+        <%= cl_image_tag @bike.photo.key %>
 
         <div class="card-trip-infos">
           <div>
@@ -50,6 +50,32 @@
         <p><%= link_to 'Back to our bikes', bikes_path, class: "btn btn-ghost"%></p>
       </div>
     </div>
+
+<div class="container" style="width:400px;">
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <br>
+      <h2>Book this bike</h2>
+      <br>
+
+      <%= simple_form_for [@bike, @booking] do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :dates %>
+        </div>
+
+        <div class="button">
+          <div class="row justify-content-center">
+          
+          <p><%= f.submit "Book your Bike", class: "btn-ghost-filled" %>
+          <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+          </p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
 

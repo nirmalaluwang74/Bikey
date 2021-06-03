@@ -57,13 +57,16 @@
       const wish = document.getElementById('wish');
       wish.addEventListener("click", (event) => {
         console.log(event);
-        event.currentTarget.classList.toggle('clicked');
+        if (event.currentTarget.classList.toggle('clicked')) {
         document.getElementById('wish-alert').innerHTML = "Added to <br> wish list";
+      } else {
+        document.getElementById('wish-alert').innerHTML = "";
+        };
       });
 
-      // wish.removeEventListener("click", (event) => {
+      // wish.EventListener("click", (event) => {
       //   console.log(event);
-      //   // event.currentTarget.classList.toggle('i');
+      //   event.currentTarget.classList.toggle('i');
       //   document.getElementById('wish-alert').innerHTML = "";
       // });
 

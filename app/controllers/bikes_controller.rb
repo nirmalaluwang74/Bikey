@@ -2,7 +2,11 @@ class BikesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @bikes = policy_scope(Bike)
+    if params[:query].present?
+      @bikes = policy_scope(Bike.where("location ILIKE ?", "%#{params[:query]}%"))
+    else
+      @bikes = policy_scope(Bike)
+    end
   end
 
   def show

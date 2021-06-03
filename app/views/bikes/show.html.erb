@@ -1,11 +1,11 @@
 
-<div class="container" style="width:500px">
+<div class="container" style="width:800px">
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
       <p id="notice"><%= notice %></p>
       <div class="card-trip">
-        <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1f%2FNorco_Range.jpg%2F1200px-Norco_Range.jpg&f=1&nofb=1" alt="bike">
+       <%= image_tag('bike.jpg', height: '400px', width: '800px')%>
 
         <div class="card-trip-infos">
           <div>
@@ -39,7 +39,7 @@
               <%#= @bike.user_id %>
             </p> -->
           </div>
-          <h2 class="card-trip-pricing">€15.00</h2>
+          <h2 class="card-trip-pricing">€15/day</h2>
           <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
           <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>
         </div>
@@ -58,7 +58,7 @@
       wish.addEventListener("click", (event) => {
         console.log(event);
         if (event.currentTarget.classList.toggle('clicked')) {
-        document.getElementById('wish-alert').innerHTML = "Added to <br> wish list";
+        document.getElementById('wish-alert').innerHTML = "<strong>Added to <br> wish list</strong>";
       } else {
         document.getElementById('wish-alert').innerHTML = "";
         };

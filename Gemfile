@@ -25,6 +25,8 @@ gem 'pundit'
 # gem 'bcrypt', '~> 3.1.7'
 #(NL installed) authentication gem for forms
 gem 'devise'
+#by Marilou
+gem 'geocoder'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 # Reduces boot times through caching; required in config/boot.rb

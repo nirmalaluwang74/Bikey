@@ -3,7 +3,6 @@
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
-      <p id="notice"><%= notice %></p>
       <div class="card-trip ">
         <%= cl_image_tag @bike.photo.key %>
 
@@ -69,6 +68,7 @@
           
           <p><%= f.submit "Book your Bike", class: "btn-ghost-filled" %>
           <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
+          <%# <%= link_to 'My Bookings' bike_bookings_path, class: "btn-ghost-filled" %> 
           </p>
           </div>
         </div>

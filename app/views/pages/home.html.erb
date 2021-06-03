@@ -1,42 +1,51 @@
 
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images6.alphacoders.com/549/549198.jpg');">
+
   <div class="container">
     <h1>Sustainable Experiences</h1>
     <p>Find the latest bike models to whizz around
-      <br>town without leaving the comfort of your home</p>
+      <br>town⏤all without leaving the comfort of your home</p>
       <a class="btn btn-ghost-filled" href="#">Book a bike</a>
       <!-- <a class="btn btn-ghost" href="#">List a bike</a> -->
       <%= link_to 'List a bike', new_bike_path, class: "btn btn-ghost" %>
-    </div>
+      <br>
+      <br>
+      <!-- <form>
+        <input type="text" name="search" placeholder="Search for bikes in your city">
+      </form> -->
+      <%= form_tag bikes_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      placeholder: "Search for bikes in your city"
+    %>
+    <%#= submit_tag %>
+    <% end %>
   </div>
+</div>
 
 
 
-  <div class="container" style="width:500px;">
-    <div class="row justify-content-centre">
-      <div class="col-12">
-        <br>
-        <br>
-        <h3 class="text-center">Bike of the day</h3>
-        <p class="text-center">Our assortment includes some of the best brands in town.</p>
-
+<div class="container" style="width:100vw;">
+  <div class="row justify-content-centre" >
+    <div class="col-12">
+      <br>
+      <br>
+      <h3 class="text-center">Featured bikes</h3>
+      <p class="text-center">Our assortment includes some of the <mark style="background-color: #FC8A00;">best brands</mark> in town.</p>
+      <br>
+      <div style="display:flex; flex-direction:row;justify-content: space-between; align-items: center;">
+        <% @bikes_featured.each do |bike| %>
         <div class="card-trip">
-          <% @bikes_featured.each do |bike| %>
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2F1%2F1f%2FNorco_Range.jpg%2F1200px-Norco_Range.jpg&f=1&nofb=1" alt="bike">
-          <div class="card-trip-infos">
-            <div>
+          <%= image_tag('bike.jpg', height: '150px', width: '350px', id: 'box')%>
+          <div class="card-trip-infos" >
+            <div >
               <div>
                 <strong>Brand:</strong>
                 <%= bike.brand %>
               </div>
 
               <div>
-                <strong>Frame Size:</strong>
-                <%= bike.frame_size %>
-              </div>
-
-              <div>
-                <strong>Type of Bike:</strong>
+                <strong>Type of bike:</strong>
                 <%= bike.bike_type %>
               </div>
 
@@ -44,22 +53,64 @@
                 <strong>Location:</strong>
                 <%= bike.location %>
               </div>
-
-              <div>
-                <strong>Description:</strong>
-                <%= bike.description %>
-              </div>
-
-              <% end %>
             </div>
-            <h2 class="card-trip-pricing">€15.00</h2>
+            <h2 class="card-trip-pricing">€15/day</h2>
           </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+
+<div class = "container">
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <h3 style="text-align:center;">How it all works</h3>
+      <br>
+      <div style="display:flex; justify-content:space-between; flex:row; text-align:center">
+        <div>
+          <h4>1. Find</h4>
+          <p>Find your dream bike</p>
+        </div>
+        <div>
+          <h4>2. Book</h4>
+          <p>Make your selection</p>
+        </div>
+        <div>
+          <h4>3. Ride</h4>
+          <p>Enjoy your bike</p>
+        </div>
+        <div>
+          <h4>4. Return</h4>
+          <p>Return and leave a review</p>
         </div>
       </div>
     </div>
   </div>
+</div>
+<br>
+<br>
 
 
 
-  <%#= asset_path 'foo.jpg' %>
+<script>
+  const element = document.getElementById("box");
+
+  element.addEventListener("mouseover", event => {
+    console.log("Mouse in");
+    event.currentTarget.style.display= "zoom";
+  });
+
+  element.addEventListener("mouseout", event => {
+    console.log("Mouse out");
+  });
+</script>
+
+
+
 

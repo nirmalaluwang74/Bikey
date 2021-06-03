@@ -1,0 +1,22 @@
+input[type=text] {
+  width: 260px;
+  box-sizing: border-box;
+  border: 1px solid #FC8A00;
+  border-radius: 4px;
+  font-size: 15px;
+  // background-color: white;
+  background-image: url('search-icon.png');
+  background-size: 15px;
+  background-position: 10px 15px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+  opacity:0.8;
+  // height: 41px;
+}
+
+input[type=text]:focus {
+  width: 50%;
+}
+

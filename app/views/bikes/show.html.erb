@@ -1,10 +1,16 @@
 
-<div class="container" style="width:600px;">
+
+<div class="container" style="width:800px;">
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
       <div class="card-trip ">
-        <%= cl_image_tag @bike.photo.key %>
+         <% if bike.photo.attached?%>
+             <%= cl_image_tag bike.photo.key%>
+         <% else %>
+             <%= image_tag('bike.jpg', height: '400px', width: '800px') %>
+         <% end %>
+
 
         <div class="card-trip-infos">
           <div>
@@ -38,7 +44,7 @@
               <%#= @bike.user_id %>
             </p> -->
           </div>
-          <h2 class="card-trip-pricing">€15.00</h2>
+          <h2 class="card-trip-pricing">€15/day</h2>
           <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
           <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>
         </div>
@@ -84,7 +90,7 @@
       wish.addEventListener("click", (event) => {
         console.log(event);
         if (event.currentTarget.classList.toggle('clicked')) {
-        document.getElementById('wish-alert').innerHTML = "Added to <br> wish list";
+        document.getElementById('wish-alert').innerHTML = "<strong>Added to <br> wish list</strong>";
       } else {
         document.getElementById('wish-alert').innerHTML = "";
         };

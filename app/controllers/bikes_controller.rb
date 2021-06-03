@@ -6,7 +6,7 @@ class BikesController < ApplicationController
       @bikes = policy_scope(Bike.where("location ILIKE ?", "%#{params[:query]}%"))
     else
       @bikes = policy_scope(Bike)
-
+    end
       @markers = @bikes.map do |bike|
       {
         lat: bike.latitude,

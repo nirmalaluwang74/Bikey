@@ -1,12 +1,12 @@
 <h2 class="text-center mt-2">
     Bikes around you
 </h2>
-<div class="container" style="display:flex; space justify-content:space-around; justify-content: space-between"> 
+<div class="container" style="display:flex; space justify-content:space-around; justify-content: space-between">
   <% @bikes.each do |bike| %>
-    <div class="p-2 mb-2 bg-white">  
+    <div class="p-2 mb-2 bg-white">
       <div class="card-product">
         <div class="card-product img">
-          <%= cl_image_tag bike.photo.key %>
+          <%= cl_image_tag bike.photo.key if bike.photo.attached? %>
         </div>
         <div class="card-product-infos">
           <p><%=bike.brand%></p>
@@ -18,7 +18,13 @@
       </div>
     </div>
   <% end %>
-  
-       
-        
+
+  <div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
+
 </div>

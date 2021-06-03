@@ -1,11 +1,11 @@
 
-
+<br>
 <div class="container" > 
   <div class="row">
-    <div class="col-8" style="display: flex; justify-content: space-between; flex-wrap: wrap">
+    <div class="col-8" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
       <% @bikes.each do |bike| %>
         <span class=" m-1.5 pb-1 mt-1.5">
-          <div class="p-2 mb-2 bg-white">
+          <div class="p-2 mb-2 bg-white" style="border-radius:10px;">
             <div class="card-product"> 
               <div class="card-product img">
                 <% if bike.photo.attached?%>

@@ -1,5 +1,5 @@
 
-<div class="container" style="width:500px;">
+<div class="container" style="width:500px">
   <div class="row justify-content-center">
     <div class="col-12">
       <br>
@@ -15,7 +15,7 @@
             </p>
 
             <p>
-            <strong>Frame Size:</strong>
+              <strong>Frame Size:</strong>
               <%= @bike.frame_size %>
             </p>
 
@@ -40,6 +40,8 @@
             </p> -->
           </div>
           <h2 class="card-trip-pricing">€15.00</h2>
+          <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
+          <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>
         </div>
       </div>
       <br>
@@ -48,6 +50,33 @@
         <p><%= link_to 'Back to our bikes', bikes_path, class: "btn btn-ghost"%></p>
       </div>
     </div>
+
+
+
+    <script>
+      const wish = document.getElementById('wish');
+      wish.addEventListener("click", (event) => {
+        console.log(event);
+        if (event.currentTarget.classList.toggle('clicked')) {
+        document.getElementById('wish-alert').innerHTML = "Added to <br> wish list";
+      } else {
+        document.getElementById('wish-alert').innerHTML = "";
+        };
+      });
+
+      // wish.EventListener("click", (event) => {
+      //   console.log(event);
+      //   event.currentTarget.classList.toggle('i');
+      //   document.getElementById('wish-alert').innerHTML = "";
+      // });
+
+      // console.log(document.getElementById('wish').onclick = displayMessage);
+
+
+      // def displayMessage()
+      //   document.getElementById('wish-alert').innerHTML = "Added to wish list";
+      // end
+    </script>
 
 
 

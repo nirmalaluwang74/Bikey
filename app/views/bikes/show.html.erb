@@ -5,8 +5,8 @@
     <div class="col-12">
       <br>
       <div class="card-trip ">
-         <% if bike.photo.attached?%>
-             <%= cl_image_tag bike.photo.key%>
+         <% if @bike.photo.attached?%>
+             <%= cl_image_tag @bike.photo.key%>
          <% else %>
              <%= image_tag('bike.jpg', height: '400px', width: '800px') %>
          <% end %>

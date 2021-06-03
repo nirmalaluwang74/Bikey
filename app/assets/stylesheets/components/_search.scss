@@ -1,4 +1,4 @@
-input[type=text] {
+ input[name=query] {
   width: 260px;
   box-sizing: border-box;
   border: 1px solid #FC8A00;
@@ -16,7 +16,7 @@ input[type=text] {
   // height: 41px;
 }
 
-input[type=text]:focus {
+input[name=query]:focus {
   width: 50%;
 }
 

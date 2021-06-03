@@ -3,6 +3,14 @@ class BikesController < ApplicationController
 
   def index
     @bikes = policy_scope(Bike)
+      @markers = @bikes.map do |bike|
+      {
+        lat: bike.latitude,
+        lng: bike.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { bike: bike }),
+        image_url: helpers.asset_url('bike.jpg')
+      }
+    end
   end
 
   def show

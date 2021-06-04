@@ -35,8 +35,8 @@
       <br>
       <div style="display:flex; flex-direction:row;justify-content: space-between; align-items: center;">
         <% @bikes_featured.each do |bike| %>
-        <div class="card-trip">
-          <%= image_tag('bike.jpg', height: '150px', width: '350px', id: 'box')%>
+        <div class="card-trip zoom">
+          <%= image_tag('bike.jpg', height: '150px', width: '350px')%>
           <div class="card-trip-infos" >
             <div >
               <div>
@@ -98,18 +98,21 @@
 
 
 
-<script>
+<!-- <script>
   const element = document.getElementById("box");
 
   element.addEventListener("mouseover", event => {
     console.log("Mouse in");
-    event.currentTarget.style.display= "zoom";
+    event.currentTarget.style.width= "390px";
+    event.currentTarget.style.height= "175px";
   });
 
   element.addEventListener("mouseout", event => {
     console.log("Mouse out");
+    event.currentTarget.style.width= "350px";
+    event.currentTarget.style.height= "150px";
   });
-</script>
+</script> -->
 
 
 

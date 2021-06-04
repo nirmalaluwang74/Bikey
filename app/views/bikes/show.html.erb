@@ -1,6 +1,6 @@
 
 <div class="container">
-  
+
   <div class="row">
       <div class="col-8">
         <br>
@@ -35,14 +35,25 @@
                 <strong>Description:</strong>
                 <%= @bike.description %>
               </p>
-            </div> 
-              <h4 class="card-trip-pricing">€15/day</h4>
-              <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
-              <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p> 
-            </div>  
+            </div>
+              <h2 class="card-trip-pricing">€15/day</h2>
+              <% if user_signed_in? %>
+                <% if current_user.favourites.where(bike: @bike).any? %>
+                <i class="fas fa-heart card-trip-infos card-trip-user card-heart-orange"></i>
+                <% else %>
+                <%= link_to bike_favourites_path(@bike), method: :post, remote: true do %>
+                <i class="fas fa-heart card-trip-infos card-trip-user"></i>
+                <% end %>
+                <% end %>
+                <% end %>
+              <!-- <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
+              <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>  -->
+            </div>
+
         </div>
-            
+
       </div>
+
       <div class="col-4">
         <br>
         <h2>Book this bike</h2>
@@ -55,33 +66,13 @@
             <p><%= f.submit "Book Bike", class: "btn-ghost-filled" %>
             <%= link_to 'My Bookings', bike_bookings_path(@bike), class: "btn-ghost-filled"%></p>
             <p> <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
-        <% end %> 
-      </div> 
+        <% end %>
+      </div>
+
   </div>
-      
+
 </div>
-    
-    <script>
-      const wish = document.getElementById('wish');
-      wish.addEventListener("click", (event) => {
-        console.log(event);
-        if (event.currentTarget.classList.toggle('clicked')) {
-        document.getElementById('wish-alert').innerHTML = "<strong>Added to <br> favourites</strong>";
-      } else {
-        document.getElementById('wish-alert').innerHTML = "";
-        };
-      });
-
-      // wish.EventListener("click", (event) => {
-      //   console.log(event);
-      //   event.currentTarget.classList.toggle('i');
-      //   document.getElementById('wish-alert').innerHTML = "";
-      // });
-
-      // console.log(document.getElementById('wish').onclick = displayMessage);
 
 
-      // def displayMessage()
-      //   document.getElementById('wish-alert').innerHTML = "Added to wish list";
-      // end
-    </script>
+
+

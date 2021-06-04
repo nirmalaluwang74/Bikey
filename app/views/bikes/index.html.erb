@@ -1,12 +1,12 @@
 
 <br>
-<div class="container" > 
+<div class="container" >
   <div class="row">
     <div class="col-8" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
       <% @bikes.each do |bike| %>
         <span class=" m-1.5 pb-1 mt-1.5">
           <div class="p-2 mb-2 bg-white" style="border-radius:10px;">
-            <div class="card-product"> 
+            <div class="card-product">
               <div class="card-product img">
                 <% if bike.photo.attached?%>
                   <%= cl_image_tag bike.photo.key%>
@@ -22,7 +22,7 @@
                   <p><b>Description</b> : <%=bike.description%></p>
                 </div>
               </div>
-          </div> 
+          </div>
             <div class="link_button p-1">
               <p><%= link_to 'See this bike', bike_path(bike.id), class: "btn-ghost-filled" %></p>
             </div>
@@ -32,11 +32,11 @@
     </div>
     <div class="col-4">
       <div id="map"
-        style="width: 100%; height: 460px; border-radius: 10px;"
+        style="position: sticky; top: 8px; height: 80vh; border-radius: 10px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-  
+
     </div>
   </div>
 </div>

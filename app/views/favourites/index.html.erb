@@ -1,0 +1,37 @@
+<br>
+<h2 style="text-align:center">Your favourites</h2>
+<br>
+<div class="container" >
+  <div class="row justify-content-centre">
+    <div class="col-12">
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+         <% @favourites.each do |favourite| %>
+           <span class=" m-1.5 pb-1 mt-1.5">
+             <div class="p-2 mb-2 bg-white" style="border-radius:10px;">
+                <div class="card-product">
+                  <div class="card-product img">
+                    <% if favourite.bike.photo.attached?%>
+                    <%= cl_image_tag favourite.bike.photo.key%>
+                    <% else %>
+                    <%= image_tag('bike.jpg') %>
+                    <% end %>
+                  </div>
+                <div class="p-3">
+                <div class="card-product p">
+                  <p><b>Brand</b> : <%=favourite.bike.brand%></p>
+                  <p><b>Frame size</b> : <%=favourite.bike.frame_size%></p>
+                  <p><b>Type</b> : <%=favourite.bike.bike_type%></p>
+                  <p><b>Description</b> : <%=favourite.bike.description%></p>
+                </div>
+              </div>
+            </div>
+              <!-- <div class="link_button p-1">
+                <p><%#= link_to 'See this bike', bike_path(bike.id), class: "btn-ghost-filled" %></p>
+              </div> -->
+                </div>
+           </span>
+            <% end %>
+      </div>
+    </div>
+  </div>
+</div>

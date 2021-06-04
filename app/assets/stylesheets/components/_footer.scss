@@ -22,16 +22,18 @@ body {
 }
 
 .footer {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
   background: #F4F4F4;
+  height:50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 70px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  position: absolute;
   bottom: 0;
-  width: 100%;
 }
 .footer-links {
   display: flex;

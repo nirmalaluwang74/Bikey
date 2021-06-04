@@ -1,96 +1,76 @@
 
+<div class="container">
 
-<div class="container" style="width:800px;">
-  <div class="row justify-content-center">
-    <div class="col-12">
-      <br>
-      <div class="card-trip ">
-       <% if @bike.photo.attached?%>
-       <%= cl_image_tag @bike.photo.key%>
-       <% else %>
-       <%= image_tag('bike.jpg', height: '400px', width: '800px') %>
-       <% end %>
+  <div class="row">
+      <div class="col-8">
+        <br>
+        <div class="card-trip ">
+            <% if @bike.photo.attached?%>
+                <%= cl_image_tag @bike.photo.key%>
+            <% else %>
+                <%= image_tag('bike.jpg', height: '400px', width: '800px') %>
+            <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <p>
+                <strong>Brand:</strong>
+                <%= @bike.brand %>
+              </p>
 
+              <p>
+                <strong>Frame Size:</strong>
+                <%= @bike.frame_size %>
+              </p>
+              <p>
+                <strong>Type of Bike:</strong>
+                <%= @bike.bike_type %>
+              </p>
 
-       <div class="card-trip-infos">
-        <div>
-          <p>
-            <strong>Brand:</strong>
-            <%= @bike.brand %>
-          </p>
+              <p>
+                <strong>Location:</strong>
+                <%= @bike.location %>
+              </p>
 
-          <p>
-            <strong>Frame Size:</strong>
-            <%= @bike.frame_size %>
-          </p>
+              <p>
+                <strong>Description:</strong>
+                <%= @bike.description %>
+              </p>
+            </div>
+              <h2 class="card-trip-pricing">€15/day</h2>
+              <% if user_signed_in? %>
+                <% if current_user.favourites.where(bike: @bike).any? %>
+                <i class="fas fa-heart card-trip-infos card-trip-user card-heart-orange"></i>
+                <% else %>
+                <%= link_to bike_favourites_path(@bike), method: :post, remote: true do %>
+                <i class="fas fa-heart card-trip-infos card-trip-user"></i>
+                <% end %>
+                <% end %>
+                <% end %>
+              <!-- <i id="wish" class="fas fa-heart card-trip-infos card-trip-user"></i>
+              <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p>  -->
+            </div>
 
-          <p>
-            <strong>Type of Bike:</strong>
-            <%= @bike.bike_type %>
-          </p>
-
-          <p>
-            <strong>Location:</strong>
-            <%= @bike.location %>
-          </p>
-
-          <p>
-            <strong>Description:</strong>
-            <%= @bike.description %>
-          </p>
-
-            <!-- <p>
-              <strong>User:</strong>
-              <%#= @bike.user_id %>
-            </p> -->
-          </div>
-          <h2 class="card-trip-pricing">€15/day</h2>
-          <% if user_signed_in? %>
-          <% if current_user.favourites.where(bike: @bike).any? %>
-          <i class="fas fa-heart card-trip-infos card-trip-user card-heart-orange"></i>
-          <% else %>
-          <%= link_to bike_favourites_path(@bike), method: :post, remote: true do %>
-          <i class="fas fa-heart card-trip-infos card-trip-user"></i>
-          <% end %>
-          <% end %>
-          <% end %>
-          <!-- <p id="wish-alert" style="color:#FC8A00; position: absolute; right: 15px; top: 35px; text-align: center;"></p> -->
         </div>
-      </div>
-      <br>
-      <div class="link_button">
-        <p><%= link_to 'Book', new_bike_booking_path(@bike), class: "btn btn-ghost-filled"%></p>
-        <p><%= link_to 'Back to our bikes', bikes_path, class: "btn btn-ghost"%></p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="container" style="width:400px;">
-  <div class="row justify-content-centre">
-    <div class="col-12">
-      <br>
-      <h2>Book this bike</h2>
-      <br>
-
-      <%= simple_form_for [@bike, @booking] do |f| %>
-
-      <div class="form-inputs">
-        <%= f.input :dates %>
       </div>
 
-      <div class="button">
-        <div class="row justify-content-center">
-          
-          <p><%= f.submit "Book your Bike", class: "btn-ghost-filled" %>
-            <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%>
-            <%# <%= link_to 'My Bookings' bike_bookings_path, class: "btn-ghost-filled" %>
-          </p>
+      <div class="col-4">
+        <br>
+        <h2>Book this bike</h2>
+        <br>
+        <%= simple_form_for [@bike, @booking] do |f| %>
+
+        <div class="form-inputs">
+          <%= f.input :dates %>
         </div>
+            <p><%= f.submit "Book Bike", class: "btn-ghost-filled" %>
+            <%= link_to 'My Bookings', bike_bookings_path(@bike), class: "btn-ghost-filled"%></p>
+            <p> <%= link_to 'Bike list', bikes_path, class: "btn btn-ghost"%></p>
+        <% end %>
       </div>
-      <% end %>
-    </div>
+
   </div>
+
 </div>
 
 

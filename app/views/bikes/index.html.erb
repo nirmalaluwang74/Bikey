@@ -17,6 +17,7 @@
               <div class="p-3">
                 <div class="card-product p">
                   <p><b>Brand</b> : <%=bike.brand%></p>
+                  <p><b>Location</b> : <%=bike.location%></p>
                   <p><b>Frame size</b> : <%=bike.frame_size%></p>
                   <p><b>Type</b> : <%=bike.bike_type%></p>
                   <p><b>Description</b> : <%=bike.description%></p>
@@ -31,12 +32,13 @@
       <% end %>
     </div>
     <div class="col-4">
+      <div class="sticky-map">
       <div id="map"
-        style="position: sticky; top: 8px; height: 80vh; border-radius: 10px;"
+        style="height: 80vh; border-radius: 10px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
+    </div>
     </div>
   </div>
 </div>

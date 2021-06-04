@@ -1,3 +1,14 @@
-<%=bike.photo %>
-<h6><%= bike.brand %></h6>
-<p><%= bike.location %></p>
+<div class="window_pop-up" style="width: 250px; display: flex; justify-content: space-around;">
+<div class="photo_window" style="display: flex; justify-content: center; height: 100px; width: 80px; padding-bottom: 5px; padding-left: 2px;">
+  <% if bike.photo.attached?%>
+    <%= cl_image_tag bike.photo.key%>
+  <% else %>
+    <%= image_tag('bike.jpg') %>
+  <% end %>
+</div>
+<div class="window_description" style="text-align: right; padding-top: 15px;">
+  <h6><%= bike.brand %></h6>
+  <p><%= bike.location %></p>
+  <p>Available</p>
+</div>
+</div>
